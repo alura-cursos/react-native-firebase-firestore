@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { View, Image } from 'react-native';
 import Botao from '../../componentes/Botao';
 import { EntradaTexto } from '../../componentes/EntradaTexto';
-import { logar } from '../../servicos/requisicoesFirebase';
+import { logar } from '../../servicos/auth';
 import estilos from './estilos';
 import { Alerta } from '../../componentes/Alerta';
 import { auth } from '../../config/firebase';
