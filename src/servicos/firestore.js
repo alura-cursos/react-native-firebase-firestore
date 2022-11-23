@@ -1,5 +1,5 @@
 import { db } from "../config/firebase";
-import { collection, addDoc, getDocs, doc, updateDoc } from "firebase/firestore"
+import { collection, addDoc, getDocs, doc, updateDoc, deleteDoc } from "firebase/firestore"
 
 export async function salvarProduto(data){
   try {
@@ -30,6 +30,18 @@ export async function atualizarProduto(produtoID, data){
   try {
     const produtoRef = doc(db, "produtos", produtoID);
     await updateDoc(produtoRef, data)
+    return 'ok'
+  }
+  catch(error){
+    console.log(error)
+    return 'error'
+  }
+}
+
+export async function deletarProduto(produtoID){
+  try {
+    const produtoRef = doc(db, "produtos", produtoID);
+    await deleteDoc(produtoRef)
     return 'ok'
   }
   catch(error){
